@@ -1,18 +1,27 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.wjjunary.mvpvmplugin</id>
-    <name>mvpvmPlugin</name>
-    <vendor>wjjunary</vendor>
+    <id>com.wjjunary.mvpvmplugin</id>
+    <name>mvpvmTemplatePlugin</name>
+    <vendor>wjjun</vendor>
 
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.wjjunary.mvpvmplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.wjjunary.mvpvmplugin.services.MyProjectService"/>
+        <applicationService
+            serviceImplementation="com.wjjunary.mvpvmplugin.services.MyApplicationService" />
+        <projectService
+            serviceImplementation="com.wjjunary.mvpvmplugin.services.MyProjectService" />
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.wjjunary.mvpvmplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="com.wjjunary.mvpvmplugin.listeners.MyProjectManagerListener"
+            topic="com.intellij.openapi.project.ProjectManagerListener" />
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="temp.PluginTemplateProviderImpl" />
+    </extensions>
 </idea-plugin>
