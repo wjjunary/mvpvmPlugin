@@ -2,10 +2,8 @@ package temp.presenter
 
 
 class YrycPresenterProvider(
-        packageName: String,
+        val packageName: String,
         name: String,) {
-
-    val packageName = "$packageName.$name"
 
     var moduleName = name
 

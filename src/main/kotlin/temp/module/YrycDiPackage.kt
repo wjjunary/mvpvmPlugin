@@ -48,10 +48,8 @@ import ${packageName}.di.module.${moduleName}Module;
 @RetrofitScope
 @UIScope
 @Component(dependencies = AppComponent.class, modules = {UiModule.class, ${moduleName}Module.class, DialogModule.class})
-public class ${moduleName}Component {
+public interface ${moduleName}Component {
     
-    public ${moduleName}Component() {
-    }
 }
     """
 
