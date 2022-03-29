@@ -29,7 +29,7 @@ fun RecipeExecutor.YrycActivityRecipe(
     //ViewModel
     val viewModelProvider = YrycActivityViewModelProvider(className, activityType, !hadViewModel, packageName)
     if (hadViewModel) {
-        save(viewModelProvider.getViewModel(), uiFile.resolve("viewmodel").resolve("${className}ViewModel.${ktOrJavaExt}"))
+        save(viewModelProvider.getViewModel(), uiFile.resolve("viewmodel").resolve("${className}ViewModel.java"))
     }
 
     //布局文件
@@ -42,12 +42,12 @@ fun RecipeExecutor.YrycActivityRecipe(
     //Presenter
     val provider = YrycPresenterProvider(packageName, activityName)
     val presenterFile = srcOut.resolve("presenter")
-    save(provider.getContract(), presenterFile.resolve("contract").resolve("I${className}Contract.${ktOrJavaExt}"))
-    save(provider.getPresenter(), presenterFile.resolve("${className}Presenter.${ktOrJavaExt}"))
+    save(provider.getContract(), presenterFile.resolve("contract").resolve("I${className}Contract.java"))
+    save(provider.getPresenter(), presenterFile.resolve("${className}Presenter.java"))
 
     //对应的Activity
     val activityProvider = YrycActivityProvider(className, activityType, viewModelProvider, layoutProvider, packageName, projectData.applicationPackage)
-    val activityFile = uiFile.resolve("activity").resolve("${className}Activity.${ktOrJavaExt}")
+    val activityFile = uiFile.resolve("activity").resolve("${className}Activity.java")
     save(activityProvider.getActivity(), activityFile)
 
     open(activityFile)

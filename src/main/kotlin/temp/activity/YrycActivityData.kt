@@ -55,7 +55,7 @@ val YrycActivityData
             help = "请输入布局的名字"
             visible = { !isCommonLayout.visible || !isCommonLayout.value }
             constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
-            suggest = { "${activityToLayout(activityName.value.toLowerCase())}" }
+            suggest = { activityToLayout(activityName.value) }
         }
 
 

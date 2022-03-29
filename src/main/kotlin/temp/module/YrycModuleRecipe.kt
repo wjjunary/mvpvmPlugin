@@ -41,8 +41,8 @@ fun RecipeExecutor.YrycModuleRecipe(
         val modelFile = packFile.resolve("model")
         createDirectory(modelFile)
         val modelProvider = YrycModelPackage(packageName, name)
-        save(modelProvider.getApi(), modelFile.resolve("I${className}Api.${ktOrJavaExt}"))
-        save(modelProvider.getRetrofit(), modelFile.resolve("${className}Retrofit.${ktOrJavaExt}"))
+        save(modelProvider.getApi(), modelFile.resolve("I${className}Api.java"))
+        save(modelProvider.getRetrofit(), modelFile.resolve("${className}Retrofit.java"))
     }
 
     //创建di包
@@ -51,10 +51,10 @@ fun RecipeExecutor.YrycModuleRecipe(
     val diProvider = YrycDiPackage(packageName, name, isCustomer)
     val moduleFile = diFile.resolve("module")
     createDirectory(moduleFile)
-    save(diProvider.getModule(), moduleFile.resolve("${className}Module.${ktOrJavaExt}"))
+    save(diProvider.getModule(), moduleFile.resolve("${className}Module.java"))
     val componentFile = diFile.resolve("component")
     createDirectory(componentFile)
-    save(diProvider.getComponent(), componentFile.resolve("${className}Component.${ktOrJavaExt}"))
+    save(diProvider.getComponent(), componentFile.resolve("${className}Component.java"))
 
 
     //创建presenter包

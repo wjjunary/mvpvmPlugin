@@ -21,8 +21,8 @@ fun RecipeExecutor.YrycPresenterRecipe(
     val provider = YrycPresenterProvider(packageName, name)
 
     val contractFile = srcOut.resolve("contract")
-    save(provider.getContract(), contractFile.resolve("I${className}Contract.${ktOrJavaExt}"))
-    save(provider.getPresenter(), srcOut.resolve("${className}Presenter.${ktOrJavaExt}"))
+    save(provider.getContract(), contractFile.resolve("I${className}Contract.java"))
+    save(provider.getPresenter(), srcOut.resolve("${className}Presenter.java"))
 
 }
 
